@@ -1,0 +1,23 @@
+Comandos utiles:
+
+    Formatear archivos terraform: terraform fmt -recursive
+
+    Validar configuracion: terraform validate
+
+    Exportar archivo de plan: terraform -out myplan <-- Nombre 
+
+    Aplicar plan de un archivo: terraform apply myplan <-- Nombre del archivo
+
+    Ver estado terraform show 
+
+    Ver estado de un archivo de plan: terraform show myplan <-- Nombre del archivo
+
+    Ver recursos manejados por terraform: terraform state list
+
+    Destruir plan: terraform plan -destroy
+
+    Destruir aplicados: terraform apply -destroy #autoconfirmacion: -auto-approve
+
+    Reconigurar proyecto si ya esta inicializado: terraform init --reconfigure
+
+    Migrar Backend: terraform init -backend-config="dev.s3.tfbackend" -migrate-state

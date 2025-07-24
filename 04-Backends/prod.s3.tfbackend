@@ -1,0 +1,3 @@
+bucket = "terraformaitor21212"
+key    = "prod/state.tfstate"
+region = "eu-west-1"
