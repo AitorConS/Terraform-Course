@@ -50,29 +50,3 @@ resource "aws_route_table_association" "public_subnet" {
   route_table_id = aws_route_table.public_rtb.id
 }
 
-resource "aws_security_group" "nginx_group" {
-  name        = "allow_nginx"
-  description = "Allow nginx traffic"
-  vpc_id      = aws_vpc.nginx_vpc.id
-
-  tags = merge(local.common_tags, {
-    Name = "06-resources-main"
-  })
-}
-
-resource "aws_security_group_rule" "puerto-80" {
-  type              = "egress"
-  from_port         = 80
-  to_port           = 80
-  protocol          = "tcp"
-  security_group_id = aws_security_group.nginx_group.id
-  cidr_blocks       = ["0.0.0.0/0"]
-}
-resource "aws_security_group_rule" "puerto-443" {
-  type              = "egress"
-  from_port         = 443
-  to_port           = 443
-  protocol          = "tcp"
-  security_group_id = aws_security_group.nginx_group.id
-  cidr_blocks       = ["0.0.0.0/0"]
-}
