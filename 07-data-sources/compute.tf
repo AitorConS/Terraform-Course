@@ -14,6 +14,37 @@ data "aws_ami" "ubuntu" {
 
 }
 
+# Conseguir ID del usuario
+data "aws_caller_identity" "current" {}
+#Conseguir region
+data "aws_region" "current" {}
+#Conseguir valores de vpc no gestionada por Terraform
+data "aws_vpc" "prod_vpc" {
+  tags = {
+    Env = "Prod"
+  }
+}
+
+data "aws_availability_zones" "available" {
+  state = "available"
+}
+
+
+output "azs" {
+  value = data.aws_availability_zones.available[*].id
+}
+
+output "aws_prod_vpc" {
+  value = data.aws_vpc.prod_vpc.id
+}
+
+output "aws_caller_identity" {
+  value = data.aws_caller_identity.current
+}
+output "aws_region" {
+  value = data.aws_region.current
+}
+
 output "ubuntu_ami_data" {
   value = data.aws_ami.ubuntu.id
 }
