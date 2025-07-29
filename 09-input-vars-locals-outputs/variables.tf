@@ -20,3 +20,8 @@ variable "additional_text" {
   type    = map(string)
   default = {}
 }
+
+variable "my_sensitive_value" {
+  type      = string
+  sensitive = true
+}

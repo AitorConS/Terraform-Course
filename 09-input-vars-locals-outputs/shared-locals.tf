@@ -1,5 +1,5 @@
 locals {
-  project = "08-inputs-vars-locals-outputs"
+  project       = "09-inputs-vars-locals-outputs"
   project_owner = "terraform_course"
   cost_center   = "1234"
   ManagedBy     = "Terraform"
@@ -7,9 +7,10 @@ locals {
 
 locals {
   common_tags = {
-    project = local.project
+    project       = local.project
     project_owner = local.project_owner
     cost_center   = local.cost_center
     ManagedBy     = local.ManagedBy
+    sensitive_tag = var.my_sensitive_value
   }
 }

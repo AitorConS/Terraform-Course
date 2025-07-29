@@ -19,7 +19,7 @@ data "aws_ami" "ubuntu" {
 
 }
 
-resource "aws_instance" "compute" {
+/* resource "aws_instance" "compute" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = var.ec2_instance_type
   root_block_device {
@@ -31,4 +31,4 @@ resource "aws_instance" "compute" {
   tags = merge(local.common_tags, var.additional_text, {
     ManagedBy = local.ManagedBy
   })
-}
+} */
