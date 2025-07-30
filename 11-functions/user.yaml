@@ -1,0 +1,5 @@
+users:
+  - name: Aitor
+    group: developer
+  - name: Eloy
+    group: auditors
