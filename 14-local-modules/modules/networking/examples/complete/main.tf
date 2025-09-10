@@ -1,15 +1,9 @@
-# Networking Module
-This module manages the creation of VPCs and SUbnets, allowing for the creation of both provate and public subnets.
-
-Example usage:
-
-```
 module "vpc" {
   source = "./modules/networking"
 
   vpc_config = {
     cidr_block = "10.0.0.0/16"
-    name       = "your_vpc"
+    name       = "14-local-modules"
   }
 
   subnet_config = {
@@ -19,9 +13,9 @@ module "vpc" {
     }
     subnet_2 = {
       cidr_block = "10.0.2.0/24"
+      # Public subnets are indicated by setting the "public" option to true
       public     = true
       az         = "eu-west-1b"
     }
   }
 }
-```
