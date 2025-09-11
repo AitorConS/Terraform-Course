@@ -1,36 +1,8 @@
-Comandos utiles:
+# Cambiar el nombre de una instancia como ejemplo a otra
 
-    Formatear archivos terraform: terraform fmt -recursive
+terraform state mv  aws_instance.namethis aws_instance.new
 
-    Validar configuracion: terraform validate
+# Cambiar el nombre de la instancia pero no confirmar el cambio 
+por lo que terraform segura destruyendo y creando una nueva:
 
-    Exportar archivo de plan: terraform -out myplan <-- Nombre 
-
-    Aplicar plan de un archivo: terraform apply myplan <-- Nombre del archivo
-
-    Ver estado terraform show 
-
-    Ver estado de un archivo de plan: terraform show myplan <-- Nombre del archivo
-
-    Ver recursos manejados por terraform: terraform state list
-
-    Destruir plan: terraform plan -destroy
-
-    Destruir aplicados: terraform apply -destroy #autoconfirmacion: -auto-approve
-
-    Reconigurar proyecto si ya esta inicializado: terraform init --reconfigure
-
-    Migrar Backend: terraform init -backend-config="dev.s3.tfbackend" -migrate-state
-
-    Especificar documento de variables = terraform plan -var-file="dev.terraform.tfvars"
-
-    Crear variable de entorno: export TF_VAR_{nombre de la variable}
-
-    Orden variables:
-        1. Defaults
-        2. Env variable
-        3. tfvars file
-        4. auto.tfvars
-        5. -var and -var-file flags 
-            5.1 Example1 (-var): -var=ec2_instance_type=t3.xlarge
-            5.2 Example2 (-var-file): terraform plan -var-file="dev.terraform.tfvars"
+terraform state mv -dry-run aws_instance.namethis aws_instance.new
