@@ -21,7 +21,11 @@ data "aws_ami" "ubuntu" {
 resource "aws_instance" "this" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = var.instance_type
-  subnet_id = aws_subnet.this.id
+  subnet_id     = aws_subnet.this[0].id
+
+  tags = {
+    CostCenter = "1234"
+  }
 
   root_block_device {
     delete_on_termination = true
@@ -38,5 +42,12 @@ resource "aws_instance" "this" {
     }
 
 
+  }
+}
+
+check "cost_center_check" {
+  assert {
+    condition     = can(aws_instance.this.tags.CostCenter != "")
+    error_message = "Your AWS Instance does not have a CostCenter tag."
   }
 }
