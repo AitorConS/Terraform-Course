@@ -6,3 +6,10 @@ terraform state mv  aws_instance.namethis aws_instance.new
 por lo que terraform segura destruyendo y creando una nueva:
 
 terraform state mv -dry-run aws_instance.namethis aws_instance.new
+
+Importar recursos desde aws no gestionados de terraform a terraform:
+terraform import  aws_s3_bucket.remote_state 'terraform-course-aitorconesa'
+
+
+Eliminar de terraform (No de AWS) recurso:
+terraform state rm -dry-run aws_s3_bucket.my_bucket

@@ -48,6 +48,6 @@ moved {
 }
 
 module "compute" {
-    source = "./modules/compute"
-    ami_id = data.aws_ami.ubuntu.id
+  source = "./modules/compute"
+  ami_id = data.aws_ami.ubuntu.id
 }
