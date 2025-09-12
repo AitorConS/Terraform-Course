@@ -61,6 +61,26 @@ El estado de **Terraform** es crucial para el seguimiento de los recursos. Estos
     terraform state list
     ```
     Enumera todos los recursos que **Terraform** está gestionando en el estado actual.
+* **Cambiar el nombre de un recurso en el estado**:
+    ```bash
+    terraform state mv aws_instance.namethis aws_instance.new
+    ```
+    Cambia el nombre de una instancia en el estado sin recrear el recurso.
+* **Simular cambio de nombre sin aplicarlo**:
+    ```bash
+    terraform state mv -dry-run aws_instance.namethis aws_instance.new
+    ```
+    Muestra cómo se renombraría un recurso, pero **sin confirmar el cambio**. Terraform lo considerará como destrucción y creación en un plan real.
+* **Importar recurso existente a Terraform**:
+    ```bash
+    terraform import aws_s3_bucket.remote_state 'terraform-course-aitorconesa'
+    ```
+    Importa un recurso creado manualmente en AWS (o fuera de Terraform) para que pase a ser gestionado por Terraform.
+* **Eliminar recurso del estado (no de AWS)**:
+    ```bash
+    terraform state rm -dry-run aws_s3_bucket.my_bucket
+    ```
+    Quita un recurso del estado de Terraform, sin eliminarlo en AWS. El `-dry-run` permite simular la operación.
 
 ---
 
