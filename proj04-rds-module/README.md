@@ -7,7 +7,7 @@
         4.2.1 [DONE]Make sure that they are not in the default VPC
         4.2.2 [DONE]Make sure that they are private:
             4.2.2.1 [DONE]Check whether they are tagged with Access=Private
-    4.3 For security groups:
-        4.3.1 Make sure that there are not inbound rules for IP addresses      
-5. Create the necessary resources and make sure the validation is working
-6. Create the RDS instance inside of the module
+    4.3 [DONE]For security groups:
+        4.3.1 [DONE]Make sure that there are not inbound rules for IP addresses      
+5. [DONE]Create the necessary resources and make sure the validation is working
+6. [DONE]Create the RDS instance inside of the module

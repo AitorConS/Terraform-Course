@@ -63,14 +63,14 @@ variable "credentials" {
     condition = (
       length(regexall("[a-zA-Z]+", var.credentials.password)) > 0
       && length(regexall("[0-9]+", var.credentials.password)) > 0
-      && length(regexall("^[a-zA-Z0-9+_?-]{6,}$", var.credentials.password)) > 0
+      && length(regexall("^[a-zA-Z0-9+_?-]{8,}$", var.credentials.password)) > 0
     )
 
     error_message = <<-EOT
     Password must comply with the following format:
      1. Contain at least 1 character 
      2. Containa t least 1 digit
-     3. Be at least 6 character long
+     3. Be at least 8 character long
      4. Contain only the following characters: a-z, A-Z, 0-9, + ,-, ?, -
     EOT
   }
@@ -89,5 +89,4 @@ variable "subnet_ids" {
 variable "security_groups_ids" {
   type        = list(string)
   description = "Security Groups IDs to attach the RDS instance in."
-
 }

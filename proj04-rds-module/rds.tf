@@ -6,12 +6,12 @@ module "database" {
   storage_size = 10
 
   credentials = {
-    username = "db-admin"
-    password = "abc123?"
+    username = "dbadmin"
+    password = "abc1234567?"
   }
 
   security_groups_ids = [
-
+    aws_security_group.Compliant.id,
   ]
 
   subnet_ids = [
@@ -19,4 +19,4 @@ module "database" {
     aws_subnet.private2.id
   ]
 
-}
+}    
