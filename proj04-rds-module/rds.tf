@@ -15,7 +15,8 @@ module "database" {
   ]
 
   subnet_ids = [
-    aws_subnet.allowed.id
+    aws_subnet.private1.id,
+    aws_subnet.private2.id
   ]
 
 }
